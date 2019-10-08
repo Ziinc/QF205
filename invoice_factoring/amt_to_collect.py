@@ -1,5 +1,5 @@
 """
-Calculates the total interest+principal to collect
+Calculates the total interest+principal to collect.
 
 """
 
