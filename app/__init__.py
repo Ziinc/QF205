@@ -1,5 +1,10 @@
 
-class App:
+from PyQt5.QtWidgets import QMainWindow, QApplication
+
+
+class App(QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
     """
     Implementation of the application.
 
@@ -15,5 +20,5 @@ class App:
     def start(self):
         pass
 
-    def stop(self):
+    def exit(self):
         pass
