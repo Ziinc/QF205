@@ -1,10 +1,10 @@
 
 from PyQt5.QtWidgets import QMainWindow, QApplication
+from app.view import View
+from app.controller import Controller
 
 
-class App(QMainWindow, Ui_MainWindow):
-    def __init__(self):
-        super().__init__()
+class App(QMainWindow, Ui_MainWindow, View, Controller):
     """
     Implementation of the application.
 
@@ -16,6 +16,9 @@ class App(QMainWindow, Ui_MainWindow):
     - Files relating to the view are found in the `view` folder.
 
     """
+
+    def __init__(self):
+        super().__init__()
 
     def start(self):
         pass
