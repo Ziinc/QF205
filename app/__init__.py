@@ -1,10 +1,11 @@
 
-from PyQt5.QtWidgets import QMainWindow, QApplication
+# from PyQt5.QtWidgets import QMainWindow, QApplication
 from app.view import View
 from app.controller import Controller
 
 
-class App(QMainWindow, Ui_MainWindow, View, Controller):
+# class App(QMainWindow, Ui_MainWindow, View, Controller):
+class App(View, Controller):
     """
     Implementation of the application.
 
