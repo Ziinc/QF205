@@ -1,6 +1,6 @@
 
 
-def calc_amt_to_collect():
+def calc_amt_to_collect(invoice):
     """
     Calculates the total interest+principal to collect.
     """

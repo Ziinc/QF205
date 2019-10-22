@@ -1,4 +1,11 @@
+from app.model.invoice import Invoice
+from app.model.invoice_factoring import calc_amt_to_collect
+
+
 class Controller():
+    # underscore prevents it from being read publicly
+    _invoices = []
+
     def __init__(self):
         # For subdivided controllers, if necessary.
         super().__init__()
@@ -9,36 +16,56 @@ class Controller():
         2. calculate factoring info for each
         3. pass invoice data and factoring info to view
         """
-        pass
+        # iterate over the invoices and calculate the invoicing info for each.
+        data = [(x, self._factor_invoice(x)) for x in self._invoices]
+        return data
 
-    def get_invoice(self):
+    def get_invoice(self, id):
         """
+        finds the first invoice
         1. fetch single invoice.
         2. calculate factoring info
         3. pass data and factoring info to view
         """
-        pass
+        invoice = next((x for x in self._invoices if id == x.id), None)
+        if invoice is None:
+            # TODO: throw error
+            pass
+        data = (invoice, self._factor_invoice(invoice))
+        return data
 
-    def create_invoice(self):
+    def create_invoice(self, attrs):
         """
         1. validate single invoice data
         2. store single invoice data
 
         """
-        pass
+        invoice = Invoice(**attrs)
+        # TODO: perform invoice checks
+        self._invoices.append(invoice)
+        return invoice
 
-    def update_invoice(self):
+    def update_invoice(self, id, attrs):
         """
         1. validate single invoice data
         2. store single invoice data
         """
-        pass
+        invoice = next((x for x in self._invoices if id == x.id), None)
+        if invoice is None:
+            # TODO: throw error
+            pass
+        invoice.validate_and_update(attrs)
+        # return updated invoice
+        return invoice
 
-    def delete_invoice(self):
+    def delete_invoice(self, id):
         """
         1. delete invoice data.
         """
-        pass
+        self._invoices = [x for x in self._invoices if id != x.id]
 
-    def _factor_invoice(self):
-        pass
+    def _factor_invoice(self, x):
+        """
+        Performs necessary factoring calculations
+        """
+        return calc_amt_to_collect(x)
