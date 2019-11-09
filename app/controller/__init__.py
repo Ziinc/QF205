@@ -1,14 +1,14 @@
 from app.model.invoice import Invoice
-from app.model.invoice_factoring import calc_amt_to_collect
+import app.model.invoice_factoring as inf
 
 
 class Controller():
-    # underscore prevents it from being read publicly
-    _invoices = []
 
     def __init__(self):
         # For subdivided controllers, if necessary.
         super().__init__()
+        # underscore prevents it from being read publicly
+        self._invoices = []
 
     def list_invoices(self):
         """
@@ -68,4 +68,5 @@ class Controller():
         """
         Performs necessary factoring calculations
         """
-        return calc_amt_to_collect(x)
+        return {'amt_to_collect': inf.calc_amt_to_collect(x),
+                'is_stale': inf.check_stale_invoice}

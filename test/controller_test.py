@@ -4,11 +4,15 @@ from app.controller import Controller
 
 create_attrs = {
     'amt': 5,
-    'date': "2012-12-12"
+    'date': "2012-12-12",
+    'credit_term': 30,
+    'factor_pct': 0.11
 }
 update_attrs = {
     'amt': 6,
-    'date': "2012-12-12"
+    'date': "2012-12-12",
+    'credit_term': 30,
+    'factor_pct': 0.11
 }
 
 
@@ -33,8 +37,7 @@ class ControllerTest(unittest.TestCase):
         self.assertTrue(isinstance(fetched, Invoice))
         self.assertEqual(fetched.id, invoice.id)
 
-        # TODO: make factoring data assertions
-        assert False
+        self.assertTrue(isinstance(factoring_data, dict))
 
     def test_update_invoice(self):
         con = Controller()

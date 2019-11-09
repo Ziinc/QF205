@@ -5,7 +5,7 @@ import datetime
 
 class TestInvoiceInit(unittest.TestCase):
     def test_invoice_init(self):
-        invoice = Invoice(5, "2012-12-12")
+        invoice = Invoice(5, "2012-12-12", 30, 0.80)
         self.assertEqual(invoice.amt, 5)
         self.assertEqual(invoice.date_iso_string, '2012-12-12')
         self.assertEqual(
