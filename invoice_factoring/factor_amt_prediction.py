@@ -10,4 +10,3 @@ def calc_factor_amt(invoice_value, LTV):
   number_to_divide_multiply = 10**number_of_digits
   round_number = round(factor_amnt/number_to_divide_multiply,2)
   return int(round_number*number_to_divide_multiply)
-
