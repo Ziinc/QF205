@@ -5,13 +5,13 @@ from app.controller import Controller
 create_attrs = {
     'amt': 5,
     'date': "2012-12-12",
-    'credit_term': 30,
+    'credit_terms': 30,
     'factor_pct': 0.11
 }
 update_attrs = {
     'amt': 6,
     'date': "2012-12-12",
-    'credit_term': 30,
+    'credit_terms': 30,
     'factor_pct': 0.11
 }
 

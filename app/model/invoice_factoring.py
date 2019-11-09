@@ -19,7 +19,7 @@ def calc_amt_to_collect(invoice, interest_pct=0.12):
 
 def calc_due_date(invoice):
     # due_date = invoice.factor_start_date + \
-    #     datetime.timedelta(days=invoice.credit_term)
+    #     datetime.timedelta(days=invoice.credit_terms)
     pass
 
 
