@@ -2,7 +2,7 @@ from app.view import View
 from app.controller import Controller
 
 
-class App(View, Controller):
+class App(Controller):
     """
     Implementation of the application.
 

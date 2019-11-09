@@ -34,7 +34,7 @@ def calc_factor_amt(invoice_value, ltv):
     return invoice_value*ltv
 
 
-def check_is_stale_invoice(invoice, staleness_threshold=30):
+def check_is_stale_invoice(invoice, staleness_threshold=5):
     """
     Checks the staleness of an invoices
 

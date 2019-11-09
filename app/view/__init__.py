@@ -1,18 +1,19 @@
-from PyQt5 import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import QMainWindow, QApplication
-from PyQt5 import uic
+# from PyQt5 import *
+# from PyQt5.QtGui import *
+# from PyQt5.QtWidgets import QMainWindow, QApplication
+# from PyQt5 import uic
 
-qtCreatorFile = "app/LoanFactoringUI.ui"
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-
-
-class View(QMainWindow, Ui_MainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setupUi(self)
+# qtCreatorFile = "app/LoanFactoringUI.ui"
+# Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
+# class View(QMainWindow, Ui_MainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setupUi(self)
+
+class View():
+    pass
 # class Main(QMainWindow, Ui_MainWindow):
 #     def init(self):
 #         super().init()

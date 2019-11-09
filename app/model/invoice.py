@@ -70,6 +70,6 @@ class Invoice():
                 if k == 'company_name':
                     if type(v) != str:
                         raise AttributeError(
-                            f'Company name a string with ISO YYYY-MM-DD format. Received {v}')
+                            f'Company name should be a string. Received {v}')
 
         return True
