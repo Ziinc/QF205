@@ -7,7 +7,7 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import uic
 
-qtCreatorFile = "app/views/home.ui"
+qtCreatorFile = "app/LoanFactoringUI.ui"
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
