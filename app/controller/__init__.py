@@ -3,11 +3,7 @@ import app.model.invoice_factoring as inf
 
 
 class Controller():
-
     def __init__(self):
-        # For subdivided controllers, if necessary.
-        super().__init__()
-        # underscore prevents it from being read publicly
         self._invoices = []
 
     def list_invoices(self):
