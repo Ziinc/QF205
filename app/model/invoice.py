@@ -50,12 +50,11 @@ class Invoice():
             raise AttributeError(
                 f'Invoice Credit Term should be an integer. Received {credit_term}')
 
-        if not (type(factor_pct) == float or type(factor_pct) == int) or not (0 < factor_pct < 1):
+        if type(factor_pct) != float or not (0 < factor_pct < 1):
             raise AttributeError(
                 f'Invoice Factor Percentage should be numerical, between 0 and 1. Received {factor_pct}')
 
         if len(kwargs) > 0:
-            print(kwargs)
             for (k, v) in kwargs.items():
 
                 if k == 'factor_start_date':
