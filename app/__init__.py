@@ -1,16 +1,8 @@
-
-# from PyQt5.QtWidgets import QMainWindow, QApplication
 from app.view import View
 from app.controller import Controller
-from PyQt5.QtWidgets import QMainWindow, QApplication
-from PyQt5 import uic
-
-qtCreatorFile = "app/LoanFactoringUI.ui"
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
-class App(QMainWindow, Ui_MainWindow, Controller):
-    # class App(View, Controller):
+class App(View, Controller):
     """
     Implementation of the application.
 
