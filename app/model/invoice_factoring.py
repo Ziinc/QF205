@@ -34,7 +34,7 @@ def calc_factor_amt(invoice_value, ltv):
     return invoice_value*ltv
 
 
-def check_stale_invoice(invoice, staleness_threshold=30):
+def check_is_stale_invoice(invoice, staleness_threshold=30):
     """
     Checks the staleness of an invoices
 
@@ -46,5 +46,5 @@ def check_stale_invoice(invoice, staleness_threshold=30):
     delta = invoice.date - now
     day_diff = delta.days
     if day_diff <= staleness_threshold:
-        return True
-    return False
+        return False
+    return True

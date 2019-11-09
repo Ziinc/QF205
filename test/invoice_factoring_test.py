@@ -13,5 +13,5 @@ class TestInvoiceFactoring(unittest.TestCase):
 
     def test_invoice_staleness(self):
         invoice = Invoice(5, "2012-12-12", 30, 0.80)
-        is_stale = inf.check_stale_invoice(invoice)
+        is_stale = inf.check_is_stale_invoice(invoice)
         self.assertEqual(is_stale, True)
