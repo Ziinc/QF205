@@ -2,9 +2,11 @@ import datetime
 
 
 class Invoice():
-    def __init__(self, amt, date, credit_term, factor_pct, factor_start_date=None):
+    def __init__(self, amt, date, credit_term, factor_pct, factor_start_date=None, company_name='Unknown Company'):
         now = datetime.datetime.now()
+
         self.id = datetime.datetime.timestamp(now)
+        self.company_name = company_name
         self.amt = amt
         self.date_iso_string = date
         self.date = datetime.date.fromisoformat(date)
@@ -23,3 +25,8 @@ class Invoice():
         for k, v in attrs.items():
             setattr(self, k, v)
         return self
+
+    @staticmethod
+    def _validate_invoice_inputs(attrs):
+
+        return True
