@@ -37,7 +37,7 @@ class Main(QMainWindow, Ui_MainWindow):
                 'credit_terms': int(self.CreditTermsLineEdit.text()),
                 'factor_pct': float(self.FactorPercentageLineEdit.text())/100,
                 'factor_start_date': self.FactorStartDayLineEdit.text(),
-                'amt': float(self.InvoiceAmountLineEdit.text()),
+                'amt': self.InvoiceAmountLineEdit.text(),
                 'date': self.InvoiceDateLineEdit.text()
             }
             if self.editing_invoice_id == None:
