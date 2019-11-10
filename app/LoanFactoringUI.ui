@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1248</width>
+    <width>1345</width>
     <height>746</height>
    </rect>
   </property>
@@ -113,12 +113,12 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1241</width>
+      <width>1331</width>
       <height>631</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="OverviewTab">
      <property name="font">
@@ -135,9 +135,9 @@
      <widget class="QTableWidget" name="OverviewTable">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>20</x>
         <y>30</y>
-        <width>1151</width>
+        <width>1281</width>
         <height>471</height>
        </rect>
       </property>
@@ -212,7 +212,17 @@
       </column>
       <column>
        <property name="text">
-        <string>Amount to collect</string>
+        <string>Amount to collect ($)</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Factor Amount ($)</string>
        </property>
        <property name="font">
         <font>
@@ -239,7 +249,7 @@
      <widget class="QPushButton" name="DeleteButton">
       <property name="geometry">
        <rect>
-        <x>680</x>
+        <x>720</x>
         <y>520</y>
         <width>161</width>
         <height>51</height>
@@ -258,7 +268,7 @@
      <widget class="QPushButton" name="EditButton">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>470</x>
         <y>520</y>
         <width>161</width>
         <height>51</height>
@@ -282,7 +292,7 @@
      <widget class="QLabel" name="InvoiceFactoringHeading">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>310</x>
         <y>-10</y>
         <width>710</width>
         <height>91</height>
@@ -304,7 +314,7 @@
      <widget class="QFrame" name="NewInvoiceFrame">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>240</x>
         <y>80</y>
         <width>831</width>
         <height>441</height>
@@ -689,7 +699,7 @@
      <widget class="QPushButton" name="SaveButton">
       <property name="geometry">
        <rect>
-        <x>670</x>
+        <x>710</x>
         <y>530</y>
         <width>161</width>
         <height>51</height>
@@ -717,7 +727,7 @@
      <widget class="QPushButton" name="ResetButton">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>470</x>
         <y>530</y>
         <width>161</width>
         <height>51</height>
@@ -741,7 +751,7 @@
    <widget class="QPlainTextEdit" name="LogBox">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>470</x>
       <y>650</y>
       <width>411</width>
       <height>81</height>
