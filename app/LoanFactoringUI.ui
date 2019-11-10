@@ -107,8 +107,8 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(214, 214, 214);</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+  <widget class="QWidget" name="CentralWidget">
+   <widget class="QTabWidget" name="TabWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="OverviewTab">
      <property name="font">
@@ -392,7 +392,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="InvoiceAmtLabel">
+      <widget class="QLabel" name="InvoiceAmountLabel">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -657,7 +657,7 @@
         <string>30</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="InvoiceDateLineEdit_3">
+      <widget class="QLineEdit" name="FactorStartDayLineEdit">
        <property name="geometry">
         <rect>
          <x>470</x>
@@ -732,7 +732,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="LogBox">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -749,6 +749,9 @@
     </property>
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
