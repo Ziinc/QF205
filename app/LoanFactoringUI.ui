@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1177</width>
+    <width>1248</width>
     <height>746</height>
    </rect>
   </property>
@@ -111,10 +111,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>1121</width>
-      <height>621</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1241</width>
+      <height>631</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -135,16 +135,22 @@
      <widget class="QTableWidget" name="OverviewTable">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>20</y>
-        <width>901</width>
-        <height>501</height>
+        <x>50</x>
+        <y>30</y>
+        <width>1151</width>
+        <height>471</height>
        </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>991</width>
+        <height>471</height>
+       </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>991</width>
-        <height>16777215</height>
+        <width>2000</width>
+        <height>471</height>
        </size>
       </property>
       <row>
@@ -204,6 +210,21 @@
         <string>Factor Start Date</string>
        </property>
       </column>
+      <column>
+       <property name="text">
+        <string>Amount to collect</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Is stale?</string>
+       </property>
+      </column>
       <item row="0" column="0">
        <property name="text">
         <string/>
@@ -218,8 +239,8 @@
      <widget class="QPushButton" name="DeleteButton">
       <property name="geometry">
        <rect>
-        <x>580</x>
-        <y>530</y>
+        <x>680</x>
+        <y>520</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -237,8 +258,8 @@
      <widget class="QPushButton" name="EditButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>530</y>
+        <x>430</x>
+        <y>520</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -261,7 +282,7 @@
      <widget class="QLabel" name="InvoiceFactoringHeading">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>270</x>
         <y>-10</y>
         <width>710</width>
         <height>91</height>
@@ -283,10 +304,10 @@
      <widget class="QFrame" name="NewInvoiceFrame">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>200</x>
         <y>80</y>
-        <width>821</width>
-        <height>421</height>
+        <width>831</width>
+        <height>441</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -668,7 +689,7 @@
      <widget class="QPushButton" name="SaveButton">
       <property name="geometry">
        <rect>
-        <x>580</x>
+        <x>670</x>
         <y>530</y>
         <width>161</width>
         <height>51</height>
@@ -690,7 +711,7 @@
      <widget class="QPushButton" name="ResetButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>430</x>
         <y>530</y>
         <width>161</width>
         <height>51</height>
@@ -714,9 +735,9 @@
    <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>430</x>
       <y>650</y>
-      <width>1101</width>
+      <width>411</width>
       <height>81</height>
      </rect>
     </property>
