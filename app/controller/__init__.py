@@ -65,4 +65,5 @@ class Controller():
         Performs necessary factoring calculations
         """
         return {'amt_to_collect': inf.calc_amt_to_collect(x),
+                'factor_amt': inf.calc_factor_amt(x.amt, x.factor_pct),
                 'is_stale': inf.check_is_stale_invoice(x)}
