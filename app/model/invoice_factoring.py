@@ -43,8 +43,10 @@ def check_is_stale_invoice(invoice, staleness_threshold=5):
     - staleness_threshold (int)
     """
     now = datetime.date.today()
-    delta = invoice.date - now
+    delta = now - invoice.date
     day_diff = delta.days
+
     if day_diff <= staleness_threshold:
+
         return False
     return True

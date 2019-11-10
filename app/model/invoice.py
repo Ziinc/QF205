@@ -27,8 +27,9 @@ class Invoice():
 
     def validate_and_update(self, attrs):
         # TODO: perform validations
-        for k, v in attrs.items():
-            setattr(self, k, v)
+        self.assign_attrs(**attrs)
+        # for k, v in attrs.items():
+        #     setattr(self, k, v)
         return self
 
     @staticmethod

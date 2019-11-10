@@ -7,7 +7,7 @@ import app.model.invoice_factoring as inf
 class TestInvoiceFactoring(unittest.TestCase):
     def test_amt_to_collect(self):
         invoice = Invoice(100000, "2019-11-08", 30, 0.80,
-                          factor_start_date="2019-11-09")
+                          factor_start_date=datetime.date.today().isoformat())
         to_collect = inf.calc_amt_to_collect(invoice, 0.03)
         self.assertEqual(to_collect, 80000.0)
 

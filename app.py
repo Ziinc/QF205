@@ -12,6 +12,8 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
 class Main(QMainWindow, Ui_MainWindow):
+    editing_invoice_id = None
+
     def __init__(self):
         super(Main, self).__init__()
         self.setupUi(self)
@@ -29,17 +31,23 @@ class Main(QMainWindow, Ui_MainWindow):
         self.ResetButton.clicked.connect(self.on_reset)
 
     def on_save(self):
-        attrs = {
-            'company_name': self.CompanyNameLineEdit.text(),
-            'credit_terms': int(self.CreditTermsLineEdit.text()),
-            'factor_pct': int(self.FactorPercentageLineEdit.text())/100,
-            'factor_start_date': self.FactorStartDayLineEdit.text(),
-            'amt': float(self.InvoiceAmountLineEdit.text()),
-            'date': self.InvoiceDateLineEdit.text()
-        }
-        self.con.create_invoice(attrs)
-        self.update_list()
-        self.on_reset()
+        try:
+            attrs = {
+                'company_name': self.CompanyNameLineEdit.text(),
+                'credit_terms': int(self.CreditTermsLineEdit.text()),
+                'factor_pct': float(self.FactorPercentageLineEdit.text())/100,
+                'factor_start_date': self.FactorStartDayLineEdit.text(),
+                'amt': float(self.InvoiceAmountLineEdit.text()),
+                'date': self.InvoiceDateLineEdit.text()
+            }
+            if self.editing_invoice_id == None:
+                self.con.create_invoice(attrs)
+            else:
+                self.con.update_invoice(self.editing_invoice_id, attrs)
+            self.update_list()
+            self.on_reset()
+        except Exception as e:
+            self.logger(str(e))
 
     def on_reset(self):
         self.CompanyNameLineEdit.setText("")
@@ -48,6 +56,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.InvoiceAmountLineEdit.setText("")
         self.FactorStartDayLineEdit.setText("")
         self.InvoiceDateLineEdit.setText("")
+        self.editing_invoice_id = None
 
     def update_list(self):
         data = self.con.list_invoices()
@@ -69,26 +78,49 @@ class Main(QMainWindow, Ui_MainWindow):
                 str(invoice.credit_terms)))
             table.setItem(rowPosition, 6, QTableWidgetItem(
                 invoice.factor_start_date.isoformat()))
+            table.setItem(rowPosition, 7, QTableWidgetItem(
+                str(calculated['amt_to_collect'])))
+            table.setItem(rowPosition, 8, QTableWidgetItem(
+                str(calculated['is_stale'])))
 
     def on_delete(self):
-        items = self.OverviewTable.selectedItems()
-        ids = [int(item[0]) for item in items]
-        for id in ids:
+        try:
+            items = self.OverviewTable.selectedItems()
+            if len(items) == 0 or items[0].text() == '':
+                return None
+            id_col = items[0]
+            id = float(id_col.text())
             self.con.delete_invoice(id)
-        self.update_list()
+            self.update_list()
+        except Exception as e:
+            self.logger(str(e))
 
     def on_edit(self):
-        items = self.OverviewTable.selectedItems()
-        if len(items) == 0:
-            return None
+        try:
+            items = self.OverviewTable.selectedItems()
+            if len(items) == 0 or items[0].text() == '':
+                return None
 
-        item = items[0]
+            id_col = items[0]
 
-        id = int(item[0])
+            id = float(id_col.text())
 
-        invoice, data = self.con.get_invoice(id)
+            invoice, data = self.con.get_invoice(id)
+            self.CompanyNameLineEdit.setText(str(invoice.company_name))
+            self.CreditTermsLineEdit.setText(str(invoice.credit_terms))
+            self.FactorPercentageLineEdit.setText(str(invoice.factor_pct*100))
+            self.InvoiceAmountLineEdit.setText(str(invoice.amt))
+            self.FactorStartDayLineEdit.setText(
+                invoice.factor_start_date.isoformat())
+            self.InvoiceDateLineEdit.setText(invoice.date_iso_string)
 
-        print(f"editing invoice {invoice.id}")
+            self.editing_invoice_id = id
+            self.TabWidget.setCurrentIndex(1)
+        except Exception as e:
+            self.logger(str(e))
+
+    def logger(self, msg):
+        self.LogBox.setPlainText(msg)
 
 
 if __name__ == '__main__':
