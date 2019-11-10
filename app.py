@@ -3,7 +3,7 @@ Entrypoint for the app.
 """
 
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QTableWidget, QTableView
 from PyQt5 import uic, QtGui
 from app.controller import Controller
 
@@ -16,24 +16,41 @@ class Main(QMainWindow, Ui_MainWindow):
         super(Main, self).__init__()
         self.setupUi(self)
         self.con = Controller()
-        # connect buttons
+
+        # table setup
+        self.OverviewTable.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.OverviewTable.setSelectionBehavior(QTableView.SelectRows)
+
+        # table action buttons
+        self.DeleteButton.clicked.connect(self.on_delete)
+        self.EditButton.clicked.connect(self.on_edit)
+        # connect form buttons
         self.SaveButton.clicked.connect(self.on_save)
+        self.ResetButton.clicked.connect(self.on_reset)
 
     def on_save(self):
         attrs = {
             'company_name': self.CompanyNameLineEdit.text(),
             'credit_terms': int(self.CreditTermsLineEdit.text()),
             'factor_pct': int(self.FactorPercentageLineEdit.text())/100,
-            'factor_start_date': self.FactorStartDayLIneEdit.text(),
+            'factor_start_date': self.FactorStartDayLineEdit.text(),
             'amt': float(self.InvoiceAmountLineEdit.text()),
             'date': self.InvoiceDateLineEdit.text()
         }
         self.con.create_invoice(attrs)
         self.update_list()
+        self.on_reset()
+
+    def on_reset(self):
+        self.CompanyNameLineEdit.setText("")
+        self.CreditTermsLineEdit.setText("")
+        self.FactorPercentageLineEdit.setText("")
+        self.InvoiceAmountLineEdit.setText("")
+        self.FactorStartDayLineEdit.setText("")
+        self.InvoiceDateLineEdit.setText("")
 
     def update_list(self):
         data = self.con.list_invoices()
-        print(data)
         table = self.OverviewTable
         table.setRowCount(0)
         for invoice, calculated in data:
@@ -52,6 +69,26 @@ class Main(QMainWindow, Ui_MainWindow):
                 str(invoice.credit_terms)))
             table.setItem(rowPosition, 6, QTableWidgetItem(
                 invoice.factor_start_date.isoformat()))
+
+    def on_delete(self):
+        items = self.OverviewTable.selectedItems()
+        ids = [int(item[0]) for item in items]
+        for id in ids:
+            self.con.delete_invoice(id)
+        self.update_list()
+
+    def on_edit(self):
+        items = self.OverviewTable.selectedItems()
+        if len(items) == 0:
+            return None
+
+        item = items[0]
+
+        id = int(item[0])
+
+        invoice, data = self.con.get_invoice(id)
+
+        print(f"editing invoice {invoice.id}")
 
 
 if __name__ == '__main__':
