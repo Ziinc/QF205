@@ -530,7 +530,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLineEdit" name="FactorStartDayLIneEdit">
+      <widget class="QLineEdit" name="FactorStartDayLineEdit">
        <property name="geometry">
         <rect>
          <x>470</x>
