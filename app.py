@@ -69,7 +69,8 @@ class Main(QMainWindow, Ui_MainWindow):
             table.setItem(rowPosition, 0, QTableWidgetItem(str(invoice.id)))
             table.setItem(rowPosition, 1, QTableWidgetItem(
                 str(invoice.company_name)))
-            table.setItem(rowPosition, 2, QTableWidgetItem(str(invoice.amt)))
+            table.setItem(rowPosition, 2, QTableWidgetItem(
+                f"${invoice.amt:.2f}"))
             table.setItem(rowPosition, 3, QTableWidgetItem(
                 str(invoice.factor_pct * 100)))
             table.setItem(rowPosition, 4, QTableWidgetItem(
@@ -79,7 +80,7 @@ class Main(QMainWindow, Ui_MainWindow):
             table.setItem(rowPosition, 6, QTableWidgetItem(
                 invoice.factor_start_date.isoformat()))
             table.setItem(rowPosition, 7, QTableWidgetItem(
-                str(calculated['amt_to_collect'])))
+                f"${calculated['amt_to_collect']:.2f}"))
             table.setItem(rowPosition, 8, QTableWidgetItem(
                 str(calculated['is_stale'])))
 
