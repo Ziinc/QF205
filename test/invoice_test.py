@@ -13,9 +13,12 @@ class TestInvoiceInit(unittest.TestCase):
 
     def test_input_parsing(self):
         try:
-            Invoice("20,200,000", "2012-12-12", 4, 0.80)
-            Invoice("$20,200,000", "2012-12-12", 4, 0.80)
-            Invoice("$20,200,000", "2012-12-12", 4, 0.80)
+            invoice = Invoice("20,200,000", "2012-12-12", 4, 0.80)
+            self.assertEqual(invoice.amt, 20200000)
+            invoice = Invoice("$20,200,000", "2012-12-12", 4, 0.80)
+            self.assertEqual(invoice.amt, 20200000)
+            invoice = Invoice("$20,200,000", "2012-12-12", 4, 0.80)
+            self.assertEqual(invoice.amt, 20200000)
         except Exception as e:
             self.fail(f"Failed invoice insertion. Error: {e}")
 
