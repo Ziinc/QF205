@@ -1,4 +1,5 @@
 import datetime
+import re 
 
 
 class Invoice():
@@ -32,15 +33,16 @@ class Invoice():
         #     setattr(self, k, v)
         return self
 
-    @staticmethod
-    def validate_invoice_inputs(amt, date, credit_terms, factor_pct, **kwargs):
-        if type(amt) == str or amt == None:
+
+    def validate_invoice_inputs(self, amt, date, credit_terms, factor_pct, **kwargs):
+        if (type(amt) != int and type(amt) != float) and \
+                 (type(amt) == str and self._is_pattern_amt_correct(amt) == False) or amt == None: 
             raise AttributeError(
-                f'Invoice Amount should be numerical. Received {amt}')
+                 f'Invoice Amount should be numerical. Received {amt}')
 
         if type(date) != str:
             raise AttributeError(
-                f'Invoice Date should be a string with ISO YYYY-MM-DD format. Received {date}')
+                f'Invoice Date shoquld be a string with ISO YYYY-MM-DD format. Received {date}')
         try:
             datetime.datetime.strptime(date, '%Y-%m-%d')
         except ValueError:
@@ -74,3 +76,12 @@ class Invoice():
                             f'Company name should be a string. Received {v}')
 
         return True
+    @staticmethod
+    def _is_pattern_amt_correct(amt):
+        pattern = re.compile("^(?:[$]|)[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{1})?|(?:,[0-9]{3})*(?:\.[0-9]{1,2})?|(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)$") 
+        match = pattern.match(amt)
+        if match == None:
+            return False
+        else:
+            return True
+
