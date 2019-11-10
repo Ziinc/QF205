@@ -11,7 +11,7 @@ def calc_amt_to_collect(invoice, interest_pct=0.12):
     factor_amt = calc_factor_amt(invoice.amt, invoice.factor_pct)
 
     now = datetime.date.today()
-    from_factor_start_delta = invoice.factor_start_date - now
+    from_factor_start_delta = now - invoice.factor_start_date
     days_from_factor_start = from_factor_start_delta.days
     interest = factor_amt * interest_pct * (days_from_factor_start/360)
     return factor_amt + interest
