@@ -3,7 +3,7 @@ Entrypoint for the app.
 """
 
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QTableWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QTableWidget, QTableView
 from PyQt5 import uic, QtGui
 from app.controller import Controller
 
@@ -17,10 +17,14 @@ class Main(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.con = Controller()
 
-        # do minor ui setup
+        # table setup
         self.OverviewTable.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.OverviewTable.setSelectionBehavior(QTableView.SelectRows)
 
-        # connect buttons
+        # table action buttons
+        self.DeleteButton.clicked.connect(self.on_delete)
+        self.EditButton.clicked.connect(self.on_edit)
+        # connect form buttons
         self.SaveButton.clicked.connect(self.on_save)
         self.ResetButton.clicked.connect(self.on_reset)
 
@@ -65,6 +69,26 @@ class Main(QMainWindow, Ui_MainWindow):
                 str(invoice.credit_terms)))
             table.setItem(rowPosition, 6, QTableWidgetItem(
                 invoice.factor_start_date.isoformat()))
+
+    def on_delete(self):
+        items = self.OverviewTable.selectedItems()
+        ids = [int(item[0]) for item in items]
+        for id in ids:
+            self.con.delete_invoice(id)
+        self.update_list()
+
+    def on_edit(self):
+        items = self.OverviewTable.selectedItems()
+        if len(items) == 0:
+            return None
+
+        item = items[0]
+
+        id = int(item[0])
+
+        invoice, data = self.con.get_invoice(id)
+
+        print(f"editing invoice {invoice.id}")
 
 
 if __name__ == '__main__':
