@@ -3,7 +3,7 @@ Entrypoint for the app.
 """
 
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QTableWidget
 from PyQt5 import uic, QtGui
 from app.controller import Controller
 
@@ -16,6 +16,10 @@ class Main(QMainWindow, Ui_MainWindow):
         super(Main, self).__init__()
         self.setupUi(self)
         self.con = Controller()
+
+        # do minor ui setup
+        self.OverviewTable.setEditTriggers(QTableWidget.NoEditTriggers)
+
         # connect buttons
         self.SaveButton.clicked.connect(self.on_save)
         self.ResetButton.clicked.connect(self.on_reset)
