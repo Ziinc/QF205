@@ -13,7 +13,10 @@ class Invoice():
 
         self.id = datetime.datetime.timestamp(now)
         self.company_name = company_name
-        self.amt = amt
+        if type(amt) == int or type(amt) == float:
+            self.amt = float(amt)
+        else:
+            self.amt = float(amt.replace(',', '').replace('$', ''))
         self.date_iso_string = date
         self.date = datetime.date.fromisoformat(date)
         self.credit_terms = credit_terms
