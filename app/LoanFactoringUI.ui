@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="OverviewTab">
      <property name="font">
@@ -701,11 +701,17 @@
         <pointsize>30</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
        <string>Save</string>
+      </property>
+      <property name="shortcut">
+       <string>Return</string>
       </property>
      </widget>
      <widget class="QPushButton" name="ResetButton">
