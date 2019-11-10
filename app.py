@@ -18,22 +18,31 @@ class Main(QMainWindow, Ui_MainWindow):
         self.con = Controller()
         # connect buttons
         self.SaveButton.clicked.connect(self.on_save)
+        self.ResetButton.clicked.connect(self.on_reset)
 
     def on_save(self):
         attrs = {
             'company_name': self.CompanyNameLineEdit.text(),
             'credit_terms': int(self.CreditTermsLineEdit.text()),
             'factor_pct': int(self.FactorPercentageLineEdit.text())/100,
-            'factor_start_date': self.FactorStartDayLIneEdit.text(),
+            'factor_start_date': self.FactorStartDayLineEdit.text(),
             'amt': float(self.InvoiceAmountLineEdit.text()),
             'date': self.InvoiceDateLineEdit.text()
         }
         self.con.create_invoice(attrs)
         self.update_list()
+        self.on_reset()
+
+    def on_reset(self):
+        self.CompanyNameLineEdit.setText("")
+        self.CreditTermsLineEdit.setText("")
+        self.FactorPercentageLineEdit.setText("")
+        self.InvoiceAmountLineEdit.setText("")
+        self.FactorStartDayLineEdit.setText("")
+        self.InvoiceDateLineEdit.setText("")
 
     def update_list(self):
         data = self.con.list_invoices()
-        print(data)
         table = self.OverviewTable
         table.setRowCount(0)
         for invoice, calculated in data:
