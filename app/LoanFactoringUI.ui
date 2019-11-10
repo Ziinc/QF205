@@ -118,7 +118,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="OverviewTab">
      <property name="font">
@@ -367,34 +367,6 @@
         <number>-1</number>
        </property>
       </widget>
-      <widget class="QLineEdit" name="InvoiceDateLineEdit">
-       <property name="geometry">
-        <rect>
-         <x>470</x>
-         <y>260</y>
-         <width>231</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255)</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>YYYY-MM-DD</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="CompanyNameLabel">
        <property name="geometry">
         <rect>
@@ -470,34 +442,6 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLineEdit" name="CreditTermsLineEdit">
-       <property name="geometry">
-        <rect>
-         <x>470</x>
-         <y>320</y>
-         <width>231</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255)</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>30</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="CompanyNameLineEdit">
        <property name="geometry">
         <rect>
@@ -524,59 +468,6 @@
        </property>
        <property name="placeholderText">
         <string>ABC Pte Ltd</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="FactorPercentageLabel">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>200</y>
-         <width>231</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>15</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0,0,0);</string>
-       </property>
-       <property name="text">
-        <string>Factor Percentage (%)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="FactorStartDayLineEdit">
-       <property name="geometry">
-        <rect>
-         <x>470</x>
-         <y>380</y>
-         <width>231</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255)</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>YYYY-MM-DD</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="InvoiceAmountLineEdit">
@@ -607,11 +498,11 @@
         <string>50,000.00</string>
        </property>
       </widget>
-      <widget class="QLabel" name="InvoiceDateLabel">
+      <widget class="QLabel" name="FactorPercentageLabel">
        <property name="geometry">
         <rect>
          <x>130</x>
-         <y>260</y>
+         <y>200</y>
          <width>231</width>
          <height>31</height>
         </rect>
@@ -626,7 +517,7 @@
         <string notr="true">color: rgb(0,0,0);</string>
        </property>
        <property name="text">
-        <string>Invoice Date</string>
+        <string>Factor Percentage (%)</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -660,6 +551,59 @@
         <string>80</string>
        </property>
       </widget>
+      <widget class="QLineEdit" name="InvoiceDateLineEdit">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>260</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255)</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>YYYY-MM-DD</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="InvoiceDateLabel">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>260</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0,0,0);</string>
+       </property>
+       <property name="text">
+        <string>Invoice Date</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
       <widget class="QLabel" name="FactoStartDayLabel">
        <property name="geometry">
         <rect>
@@ -683,6 +627,62 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="CreditTermsLineEdit">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>320</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255)</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>30</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="InvoiceDateLineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>380</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255)</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>YYYY-MM-DD</string>
        </property>
       </widget>
      </widget>
