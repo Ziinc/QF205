@@ -102,7 +102,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>HDB Loan Calculator</string>
+   <string>Invoice Factoring Calculator</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(214, 214, 214);</string>
