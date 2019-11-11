@@ -82,6 +82,8 @@ class Main(QMainWindow, Ui_MainWindow):
             table.setItem(rowPosition, 7, QTableWidgetItem(
                 f"${calculated['amt_to_collect']:.2f}"))
             table.setItem(rowPosition, 8, QTableWidgetItem(
+                f"${calculated['factor_amt']:.2f}"))
+            table.setItem(rowPosition, 9, QTableWidgetItem(
                 str(calculated['is_stale'])))
 
     def on_delete(self):
